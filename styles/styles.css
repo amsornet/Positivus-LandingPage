@@ -258,6 +258,39 @@ h4 {
   font-size: clamp(18px, 1.3888888889vw, maxpx);
 }
 
+.burger-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  aspect-ratio: 1;
+  position: relative;
+}
+@media (hover: hover) {
+  .burger-button:hover {
+    background: var(--color-accent);
+    border-radius: var(--border-radius-small);
+  }
+}
+@media (hover: none) {
+  .burger-button:active {
+    background: var(--color-accent);
+    border-radius: var(--border-radius-small);
+  }
+}
+.burger-button::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  content: "";
+  width: 50%;
+  height: 2px;
+  background-color: var(--color-dark);
+  border-radius: 5px;
+  box-shadow: 0 -8px, 0 8px;
+}
+
 .button {
   display: inline-flex;
   justify-content: center;
@@ -295,6 +328,11 @@ h4 {
     padding-top: 30px;
   }
 }
+@media (min-width: 767px) {
+  .header {
+    padding-top: 15px;
+  }
+}
 .header__inner {
   display: flex;
   justify-content: space-between;
@@ -309,6 +347,11 @@ h4 {
 @media (min-width: 1023px) {
   .header__logo {
     max-width: 120px;
+  }
+}
+@media (min-width: 767px) {
+  .header__logo {
+    max-width: 144px;
   }
 }
 .header__menu {
