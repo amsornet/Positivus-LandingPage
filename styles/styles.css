@@ -923,8 +923,18 @@ h4 {
   counter-reset: custom-counter;
   list-style-type: none;
 }
+@media (min-width: 767px) {
+  .process__list {
+    row-gap: 20px;
+    padding: 30px;
+  }
+}
 .process__item {
+  --counterContent: counter(custom-counter);
   counter-increment: custom-counter;
+}
+.process__item:nth-child(-n+9) {
+  --counterContent: "0" counter(custom-counter);
 }
 .process__accordion {
   --indicatorVerticalRotate: 90deg;
@@ -957,14 +967,30 @@ h4 {
   cursor: pointer;
   user-select: none;
 }
+@media (min-width: 767px) {
+  .process__accordion-header {
+    column-gap: 28px;
+  }
+}
 .process__accordion-title {
+  font-size: clamp(18px, 2.0833333333vw, maxpx);
   display: flex;
   align-items: center;
   column-gap: 25px;
 }
+@media (min-width: 767px) {
+  .process__accordion-title {
+    column-gap: 33px;
+  }
+}
 .process__accordion-title::before {
-  content: "0" counter(custom-counter);
+  content: var(--counterContent);
   font-size: 2em;
+}
+@media (min-width: 767px) {
+  .process__accordion-title::before {
+    font-size: 30px;
+  }
 }
 .process__accordion-indicator {
   display: flex;
@@ -972,11 +998,16 @@ h4 {
   align-items: center;
   width: 58px;
   aspect-ratio: 1;
+  flex-shrink: 0;
   position: relative;
   background: var(--color-gray);
   border: var(--border);
   border-radius: 50%;
-  flex-shrink: 0;
+}
+@media (min-width: 767px) {
+  .process__accordion-indicator {
+    width: 30px;
+  }
 }
 .process__accordion-indicator::before, .process__accordion-indicator::after {
   position: absolute;
